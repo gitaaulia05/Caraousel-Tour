@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Indonesia - Katalog Wisata</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#1c1b1b",
+            "on-tertiary": "#422c00",
+            "secondary": "#fabc4d",
+            "on-tertiary-fixed": "#271900",
+            "secondary-fixed-dim": "#fabc4d",
+            "background": "#121212",
+            "on-background": "#e5e2e1",
+            "surface": "#121212",
+            "on-primary-fixed-variant": "#005141",
+            "tertiary-container": "#ffc04c",
+            "on-primary-container": "#00614f",
+            "on-primary": "#00382c",
+            "on-error": "#690005",
+            "surface-container-high": "#2a2a2a",
+            "outline": "#84948e",
+            "tertiary-fixed-dim": "#fabc48",
+            "on-primary-fixed": "#002019",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "surface-tint": "#00e0b8",
+            "on-secondary-fixed": "#281900",
+            "surface-container": "#201f1f",
+            "surface-variant": "#353534",
+            "on-error-container": "#ffdad6",
+            "surface-dim": "#121212",
+            "surface-container-highest": "#353534",
+            "inverse-on-surface": "#313030",
+            "tertiary": "#ffe3ba",
+            "on-tertiary-container": "#724f00",
+            "primary-container": "#00e5bc",
+            "on-secondary-container": "#3a2600",
+            "secondary-fixed": "#ffdead",
+            "on-surface-variant": "#b9cac3",
+            "on-surface": "#e5e2e1",
+            "error-container": "#93000a",
+            "on-secondary-fixed-variant": "#604100",
+            "secondary-container": "#bd8718",
+            "primary-fixed-dim": "#00e0b8",
+            "error": "#ffb4ab",
+            "inverse-primary": "#006b57",
+            "surface-bright": "#393939",
+            "primary": "#6fffd9",
+            "outline-variant": "#3b4a44",
+            "on-secondary": "#432c00",
+            "tertiary-fixed": "#ffdeab",
+            "surface-container-lowest": "#0e0e0e",
+            "primary-fixed": "#42fdd3",
+            "inverse-surface": "#e5e2e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "0.75rem",
+            "space-sm": "0.5rem",
+            "margin": "1.25rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "margin-lg": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-hero-mobile": ["32px", {"lineHeight": "38px", "letterSpacing": "-0.025em", "fontWeight": "800"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "display-hero": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- 1. Header Atas: Shared Component TopAppBar Styled Executed -->
+<header class="fixed top-0 left-0 w-full z-40 flex items-center justify-between px-margin py-space-sm h-16 bg-surface/80 backdrop-blur-md">
+<button aria-label="Menu" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight text-center">
+      Explore Indonesia
+    </h1>
+<button aria-label="Search" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+</header>
+<!-- Main Mobile Content Area -->
+<main class="pt-20 pb-28 max-w-md mx-auto overflow-x-hidden">
+<!-- 2. Hero Carousel (Bagian Utama) with Peek Effect -->
+<section class="relative w-full mb-space-xl">
+<div class="flex items-center space-x-3 overflow-x-auto no-scrollbar snap-x snap-mandatory px-4">
+<!-- Left Peeking Card -->
+<div class="snap-center shrink-0 w-12 h-[410px] rounded-2xl overflow-hidden opacity-40 bg-surface-container relative">
+<img alt="Bali" class="w-full h-full object-cover" data-alt="Stunning aerial view of Bali Ulun Danu Beratan water temple at sunrise enveloped in morning mist. Lush green tropical mountains reflect on calm lake water with cool atmospheric lighting. Cinematic high contrast Indonesian archipelago nature photography with rich deep black shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc6qjGcauLOuGSNpc-r4VYd--NMehxXesBjLglxgi2VmVhxb_XUwTopLFxNlqJg8NozGLM0qnz6hSpyVwrPCEJ5Acz5kJdfeuSwL8NrAvSXWoMaCPXhgdgnQ5FSdr-tqabv3uR2fBrvPWkctmQJun8DEkq2pJt_1hpxoQKABrHcMrwtbKOi7NysoWcsr1041-eeBSoqWeQtG8qK032MnPi1qLuPurIDtr9aMUmUq8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<!-- Main Featured Center Card: Raja Ampat & Wayag -->
+<div class="snap-center shrink-0 w-[calc(100vw-6.5rem)] max-w-[340px] h-[430px] rounded-2xl md:rounded-3xl overflow-hidden relative shadow-[0_12px_36px_rgba(0,0,0,0.6)] border border-white/10 group">
+<img alt="Raja Ampat &amp; Wayag" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Spectacular panoramic view of Raja Ampat Wayag islands with dramatic conical limestone karst formations emerging from crystalline turquoise tropical waters. Cinematic aerial angle showcasing coral reefs, deep shadows, and warm sunlight striking emerald green islands. Professional Indonesian travel catalog aesthetic with ultra-fine photographic details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwU6JXkTFfmCkrzPliuhtmxixCndsM_buSDqSsvwi7NqpPN-_uI7MlG3qUgXkwaMILe0xVGhY-7C_D60pXoqAkEfaXXTZtsrGblpWcT2mgTwRSygoU1rOEiErWECYhWZotJVtZdtHDUY8knRjkz4cJsnJqSKk5yoh2Uz6bG943q1tbixK_U8UqNu1Zbnekzejf4JH7M6T1ARfh6bS6ZOKJzG-d7ZzKoDyZFJFNWfk"/>
+<!-- Bottom Dark Scrim Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/70 to-transparent flex flex-col justify-end p-5">
+<div class="flex items-end justify-between gap-3">
+<div class="flex-1 pr-1">
+<span class="inline-block text-label-sm font-label-sm text-secondary font-bold tracking-wider mb-1">
+                  2024 • Nature &amp; Island
+                </span>
+<h2 class="text-headline-md font-headline-md font-bold text-white tracking-tight leading-tight mb-1.5">
+                  Raja Ampat, Papua
+                </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                  Surga tropis dengan gugusan pulau karst dan keindahan bawah laut terbaik di dunia
+                </p>
+</div>
+<!-- Circular White Action Button -->
+<button aria-label="Jelajahi Raja Ampat" class="w-11 h-11 shrink-0 bg-white rounded-full flex items-center justify-center shadow-lg text-black hover:bg-neutral-200 active:scale-95 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-2xl text-black">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Peeking Card -->
+<div class="snap-center shrink-0 w-12 h-[410px] rounded-2xl overflow-hidden opacity-40 bg-surface-container relative">
+<img alt="Komodo" class="w-full h-full object-cover" data-alt="Exotic tropical beach in Komodo National Park with pink sand shoreline and azure ocean waves under dramatic evening sky. Warm golden rays kissing rugged savanna hills in Eastern Indonesia. Atmospheric landscape photography with vibrant saturated tones and dark moody shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtxKI2nmgF84-qTSUUzhLC3AHmdIJ2TKkkeDCZSpys1eMfoSjKbeWBZ9svjcxQ4PZb7Lk6FGfn6xBWm0d-CDumpzAfgZCldm9AhET76viezclv2sXtuXgtDt6PQ71qQLjRXEBUV_mIZ9as8dK44MLwuOWWPpxOSoDfNvDR-f67A0JlAhUdwet4wP5YW6UOc-QAhVCBhoQdYT_FCszoGu5jJuVjkl-S04SZNWgZPgE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+</div>
+</section>
+<!-- 3. Daftar Horizontal 'Trending' -->
+<section class="mb-space-lg">
+<div class="flex items-center justify-between px-margin mb-3">
+<h3 class="text-headline-sm font-headline-sm font-bold text-white">Trending</h3>
+<button class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-0.5" type="button">
+<span>More</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center space-x-3 overflow-x-auto no-scrollbar px-margin">
+<!-- 1) Gunung Bromo -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Gunung Bromo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Majestic sunrise view of Mount Bromo volcanic caldera in East Java, billowing soft sulfur smoke amidst a sea of morning sand and clouds. Cool indigo and fiery gold twilight sky setting a breathtaking cinematic Indonesian adventure mood with deep contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5E7QlvWwnwZVHAODHt_Smd4YOY-tTiJV_E-O2aPVphhVVIrjdMikphFdFpN3meLqEwWZDy60QEyGUBELJULydFGI-3AVmrfr5n9-X0gizs4B-8hfncjomaIN420k3CvRv6-D575qOX595tFwiyt-n14d8r6DmIgbjqscuUlJyPYvNv887bRvmSPntmInFj_GD3aRlb2f7-wEQANf-D708Z6rX67f1MwQbLgVWD9Y"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Gunung Bromo
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+</div>
+</div>
+</article>
+<!-- 2) Labuan Bajo -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Labuan Bajo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Breathtaking aerial vista of Padar Island in Labuan Bajo featuring three distinct curved bays with vibrant blue ocean and golden hill ridges. Dramatic warm sunset lighting casting long shadows across wild Indonesian archipelago terrain." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbjRhFHhlMpIsVLzOikEcSi7STs4ycLdhXYLKvKY0Z26oqtR-xcNAv4BNg5SOuFZg8jm578stQ8TM3cPBH93UNlzE0e6wVPVjnZVwP5hjWwgUj7wj3eKTjU03IYpQWKR-UIJ6634_bKmhyd2Yk77Ku0vgNeR-n6y5xd-Otp8GEoolDwTTu-oi40WgHPYut7f60SzqH6RcNDTdIryhfmR1LT_nQes0ZY36GHxaXvRc"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Labuan Bajo
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+</div>
+</div>
+</article>
+<!-- 3) Nusa Penida -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Nusa Penida" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Iconic Kelingking T-Rex shaped coastal cliff in Nusa Penida Bali overlooking deep turquoise ocean waves crashing against secluded pristine white beach. Crisp high contrast sunlight hitting cliffside vegetation with deep rich oceanic blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ICvS3KolDeXlF9BAAKYxKk3huWLgBmHaVPlJZT-QV-Vk3XFeUd0VwfzdskaSR6rqHmmGRsgyDt5LZd94PvunHFiI-5T7rW6JzyJRx6sJdLYNg9nq2YTpB-4RIdaL8TvU3Y2PpcinxjEdXBnydd9hXbt2wsgATO5wpn0oQqzCbwLtS00UPv7B9fhfgAAFDRex6dhuyeHlZe_vqU-n28KeqpCtQPfoU5wShMFN5nc"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Nusa Penida
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- 4. Daftar Horizontal 'Popular' -->
+<section class="mb-space-lg">
+<div class="flex items-center justify-between px-margin mb-3">
+<h3 class="text-headline-sm font-headline-sm font-bold text-white">Popular</h3>
+<button class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-0.5" type="button">
+<span>More</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center space-x-3 overflow-x-auto no-scrollbar px-margin">
+<!-- 1) Candi Borobudur -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Candi Borobudur" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Atmospheric early morning at Borobudur Temple in Central Java with stone stupas silhouetted against a pastel orange sunrise and misty Menoreh mountains. Ancient stone architectural heritage captured in serene spiritual mood with delicate morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3XK51BhW50IY_dzX8MFmwLoalytS1k5oNmH7bmTQU1Y8MWYJM2fp9hzABVO9UO_-mcM2n4faKBfNUktMgXXHkhKszyZBot_wwP-qmWsXB7eNj-MdI6Ar0vQUZpj3Hd8r7bTxWa2wSyAO1KJqMQ_F2lRRQhnZpBEaW-jr8sGLfGlU9W5s3NbiLTV_xESARisYmAwT6kzW4WMp4z15Vyvtms30NtcShcBaZhopQS58"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Candi Borobudur
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+</div>
+</div>
+</article>
+<!-- 2) Danau Toba -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Danau Toba" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Vast expanse of volcanic Lake Toba in North Sumatra seen from elevated hill vista with traditional Batak village silhouettes. Gentle afternoon sunlight casting serene reflections across deep blue freshwater lake surrounded by pine forests." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2YgFYsSgK1t4I1YV_TBA4nIP8_gCE_SSu9eiAxCoh_dRSArqPAEzb7uW1mu9cs-3ZrlmI2FiVBuDE9eLWWEbT5NtgpOPp8tJ1rZD4IW-w-g0dcgIoqDPeo9tPaapeDVvEmgpNT-Rbi_ZqFR75toSf2mNl1wi8lNQ_YzwzFY8TY_p-UU6YdxLvc68fzZkcpbyWZO5q-VfcLsNmp20dSFr0NodVZRDEyP2AccHUC9Y"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Danau Toba
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.7</span>
+</div>
+</div>
+</article>
+<!-- 3) Kawah Ijen -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Kawah Ijen" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Mystical turquoise acidic crater lake of Kawah Ijen in Banyuwangi Java surrounded by steep sulfur-stained volcanic rock walls under starry pre-dawn night sky. Atmospheric sulfur plumes glowing with electric blue flame accents in an otherworldly dark natural landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ii3wSysMJyeRymE4ftY_P4wFqv-KZ7i2sFlfVUVd-pyCVZoz6ElEpFjcmMBX-xJ1Q5oiRg3WKG243MOCxSp3WgyxIv2i7Dz8PmAv3B2QFa1l9fVQBTcblgtnTg8rjtVCez69D_pJGQWG4xE_qxjEl4cakCXe-4tQ7O8tXtiCwP-fFKKJ_TAaG5B_bWH-1NK8P_IpjtrOP9NmPxSkzXBLsUaCeg0aZE9uJWqX2ew"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Kawah Ijen
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- 5. Daftar Horizontal 'Top Rated' -->
+<section class="mb-space-lg">
+<div class="flex items-center justify-between px-margin mb-3">
+<h3 class="text-headline-sm font-headline-sm font-bold text-white">Top Rated</h3>
+<button class="text-body-sm font-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-0.5" type="button">
+<span>More</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center space-x-3 overflow-x-auto no-scrollbar px-margin">
+<!-- 1) Tana Toraja -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Tana Toraja" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Distinctive boat-shaped roofs of traditional Tongkonan ancestral houses in Tana Toraja South Sulawesi surrounded by lush terraced rice fields. Rich afternoon tropical sunlight illuminating intricate wooden carvings against misty highland mountains." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPS1fcFhNSGwxrKlUAun8ZYFE_O12SI9Nu5JTBvZrIun5gRS8lD_ppX_Xkfn9hMSGcNentgJ7kXE7ZEUCKIoGMdiyHNePAvf0eVdyobI61iPEQUlqfbjnyuHvRY1VcZiNolwFm8G4DzUBBu5EqftjECpMTZvocfQTBKSCJkDbzBLHx4PWd4TPdNnaRNuK-Ps2r3aBFEEP502_wwJPGNKGrEmnTX9HQQJKdHtRq4Ck"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Tana Toraja
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+</div>
+</div>
+</article>
+<!-- 2) Pulau Derawan -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Pulau Derawan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Crystal clear aqua lagoon of Derawan Island in East Kalimantan with wooden water stilt bungalows and a giant sea turtle swimming in shallow coral reefs. Bright midday sun creating luminous underwater reflections and pure tropical island bliss." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg_KFaqxbHyA9HYlyC9sOaFbcp3lMD43TZL_LaVyE0rtpgzGfqOrLJ-Bg6PXYXUTsmzm4NplQnVQAS70A2wTlRcBPdtfTd13uVnTW4DjJQqrecf1XIMmFuBWOhwSlaQdoKby7TY9U5cXItp1kxsapxZ2l2bVJz9Dviye8-Hc1vpNIIGRyM-YwPz9E17JmR2VSAT0Qosahv8rqRXZwqIaQILGunTM-zRfxaQHQ07RQ"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Pulau Derawan
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>5.0</span>
+</div>
+</div>
+</article>
+<!-- 3) Desa Waerebo -->
+<article class="shrink-0 w-36 aspect-[3/4] rounded-xl overflow-hidden relative border border-white/10 bg-surface-container group">
+<img alt="Desa Waerebo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Remote mountain village of Wae Rebo in Flores featuring iconic conical thatched Mbaru Niang houses nestled in an emerald volcanic valley. Swirling morning highland clouds creating a mythical and ancient cultural sanctuary atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfEuQTMpd-VCv3SJfOs-OXTPOeR-SsTFLgXqfXznXQh7wpwkvJIbvgqkZXw8sKPBx--6g8Flroi2Mb2xuUBFc1-8g3a_WVdbiwKsruGHf7Aq7xCUN40nEmYcdFD0aL9QAtm8g1luE7y7s7LCu7FIXEodYpjoECiA09fivRtrwA_7DDALSxY9B6HvmGlbHoPtKovNu15nU_xW7m7XI6Qq2ZZLohGfTQ8tdP1FQdhUg"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/60 p-3 flex flex-col justify-between">
+<h4 class="text-label-lg font-label-lg font-bold text-white tracking-tight drop-shadow-md">
+              Desa Waerebo
+            </h4>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- 6. Bottom Bar Statis: Shared Component BottomNavBar Execution -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#181818] border-t border-white/10 backdrop-blur-xl h-16 max-w-md mx-auto flex items-center justify-around px-margin">
+<!-- 1) Home (Status Aktif) -->
+<button class="flex flex-col items-center justify-center text-white font-semibold gap-0.5 w-16 group active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+<!-- Dot indicator for active tab -->
+<span class="w-1 h-1 rounded-full bg-primary mt-0.5"></span>
+</button>
+<!-- 2) Kategori (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white gap-0.5 w-16 group active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-2xl">category</span>
+<span class="text-label-sm font-label-sm">Kategori</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<!-- 3) Favorite (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-white gap-0.5 w-16 group active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+<span class="text-label-sm font-label-sm">Favorite</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-0.5"></span>
+</button>
+</nav>
+</body></html>
