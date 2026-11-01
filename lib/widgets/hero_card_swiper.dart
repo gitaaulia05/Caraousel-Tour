@@ -58,7 +58,7 @@ class _HeroCardSwiperState extends State<HeroCardSwiper> {
               ),
               const SizedBox(height: 16),
               Text(
-                'Semua Destinasi Telah Dilihat!',
+                'Semua Film Telah Dilihat!',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,

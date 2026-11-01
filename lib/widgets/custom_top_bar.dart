@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
 
 class CustomTopBar extends StatelessWidget implements PreferredSizeWidget {
-  final VoidCallback? onMenuPressed;
+  final String title;
   final VoidCallback? onSearchPressed;
 
   const CustomTopBar({
     super.key,
-    this.onMenuPressed,
+    this.title = 'Explore Movies',
     this.onSearchPressed,
   });
 
@@ -24,7 +24,7 @@ class CustomTopBar extends StatelessWidget implements PreferredSizeWidget {
           height: 64 + MediaQuery.of(context).padding.top,
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).padding.top,
-            left: 16,
+            left: 20,
             right: 16,
           ),
           decoration: BoxDecoration(
@@ -38,15 +38,9 @@ class CustomTopBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           child: Row(
             children: [
-              _buildIconButton(
-                icon: Icons.menu_rounded,
-                onTap: onMenuPressed ?? () {},
-                tooltip: 'Menu',
-              ),
               Expanded(
                 child: Text(
-                  'Explore Indonesia',
-                  textAlign: TextAlign.center,
+                  title,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.w700,
                         color: AppColors.onSurface,
@@ -80,7 +74,7 @@ class CustomTopBar extends StatelessWidget implements PreferredSizeWidget {
           width: 40,
           height: 40,
           alignment: Alignment.center,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.transparent,
           ),

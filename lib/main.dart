@@ -9,20 +9,20 @@ void main() {
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
-      systemNavigationBarColor: AppColors.bottomNavBg,
+      systemNavigationBarColor: AppColors.background,
       systemNavigationBarIconBrightness: Brightness.light,
     ),
   );
-  runApp(const ExploreIndonesiaApp());
+  runApp(const ExploreMoviesApp());
 }
 
-class ExploreIndonesiaApp extends StatelessWidget {
-  const ExploreIndonesiaApp({super.key});
+class ExploreMoviesApp extends StatelessWidget {
+  const ExploreMoviesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Explore Indonesia',
+      title: 'Explore Movies',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       darkTheme: AppTheme.darkTheme,
@@ -31,3 +31,6 @@ class ExploreIndonesiaApp extends StatelessWidget {
     );
   }
 }
+
+// Backward-compatible alias
+typedef ExploreIndonesiaApp = ExploreMoviesApp;

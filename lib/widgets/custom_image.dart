@@ -61,7 +61,7 @@ class CustomImage extends StatelessWidget {
           ),
           child: const Center(
             child: Icon(
-              Icons.landscape_rounded,
+              Icons.movie_creation_outlined,
               color: AppColors.onSurfaceVariant,
               size: 32,
             ),

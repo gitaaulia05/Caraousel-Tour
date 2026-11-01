@@ -3,7 +3,6 @@ import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import '../data/destination_data.dart';
 import '../models/destination.dart';
 import '../theme/app_theme.dart';
-import '../widgets/custom_bottom_nav.dart';
 import '../widgets/custom_top_bar.dart';
 import '../widgets/hero_card_swiper.dart';
 import '../widgets/hero_carousel_slider.dart';
@@ -19,9 +18,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentTabIndex = 0;
   HeroViewMode _heroViewMode = HeroViewMode.carousel;
-  final Set<String> _favoriteIds = {'raja_ampat', 'gunung_bromo'};
+  final Set<String> _favoriteIds = {'oppenheimer', 'interstellar'};
 
   void _toggleFavorite(Destination destination) {
     setState(() {
@@ -134,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    const Icon(Icons.location_on_outlined,
+                    const Icon(Icons.movie_filter_outlined,
                         color: AppColors.onSurfaceVariant, size: 16),
                     const SizedBox(width: 4),
                     Text(
@@ -200,33 +198,15 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: CustomTopBar(
-        onMenuPressed: () {
-          _showSnackBar('Menu navigasi dibuka');
-        },
         onSearchPressed: () {
-          _showSnackBar('Fitur pencarian destinasi wisata');
+          _showSnackBar('Fitur pencarian film');
         },
       ),
-      body: IndexedStack(
-        index: _currentTabIndex,
-        children: [
-          _buildHomeTab(),
-          _buildKategoriTab(),
-          _buildFavoriteTab(),
-        ],
-      ),
-      bottomNavigationBar: CustomBottomNav(
-        selectedIndex: _currentTabIndex,
-        onItemSelected: (index) {
-          setState(() {
-            _currentTabIndex = index;
-          });
-        },
-      ),
+      body: _buildHomeContent(),
     );
   }
 
-  Widget _buildHomeTab() {
+  Widget _buildHomeContent() {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.only(top: 16, bottom: 28),
@@ -345,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HorizontalDestinationSection(
                 title: 'Trending',
                 destinations: DestinationData.trendingDestinations,
-                onMoreTap: () => _showSnackBar('Menampilkan lebih banyak destinasi Trending'),
+                onMoreTap: () => _showSnackBar('Menampilkan lebih banyak film Trending'),
                 onCardTap: _showDetailSheet,
               ),
 
@@ -355,7 +335,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HorizontalDestinationSection(
                 title: 'Popular',
                 destinations: DestinationData.popularDestinations,
-                onMoreTap: () => _showSnackBar('Menampilkan lebih banyak destinasi Popular'),
+                onMoreTap: () => _showSnackBar('Menampilkan lebih banyak film Popular'),
                 onCardTap: _showDetailSheet,
               ),
 
@@ -365,7 +345,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HorizontalDestinationSection(
                 title: 'Top Rated',
                 destinations: DestinationData.topRatedDestinations,
-                onMoreTap: () => _showSnackBar('Menampilkan lebih banyak destinasi Top Rated'),
+                onMoreTap: () => _showSnackBar('Menampilkan lebih banyak film Top Rated'),
                 onCardTap: _showDetailSheet,
               ),
 
@@ -411,240 +391,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildKategoriTab() {
-    final allDestinations = [
-      ...DestinationData.heroDestinations,
-      ...DestinationData.trendingDestinations,
-      ...DestinationData.popularDestinations,
-      ...DestinationData.topRatedDestinations,
-    ];
-
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.all(20),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 480),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Kategori & Discovery Deck',
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.w800,
-                      color: Colors.white,
-                    ),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                'Geser kartu ke kanan untuk favorit, geser ke kiri untuk lewati. Ditenagai oleh flutter_card_swiper.',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.onSurfaceVariant,
-                    ),
-              ),
-              const SizedBox(height: 24),
-              HeroCardSwiper(
-                destinations: allDestinations,
-                onCardTap: _showDetailSheet,
-                onSwiped: (destination, direction) {
-                  if (direction == CardSwiperDirection.right) {
-                    _toggleFavorite(destination);
-                  }
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildFavoriteTab() {
-    final allDestinations = [
-      ...DestinationData.heroDestinations,
-      ...DestinationData.trendingDestinations,
-      ...DestinationData.popularDestinations,
-      ...DestinationData.topRatedDestinations,
-    ];
-
-    final favoriteList = allDestinations
-        .where((dest) => _favoriteIds.contains(dest.id))
-        .toList();
-
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.all(20),
-      child: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 480),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      'Destinasi Favorit',
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white,
-                          ),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: AppColors.primary.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Text(
-                      '${favoriteList.length} Tersimpan',
-                      style: const TextStyle(
-                        color: AppColors.primary,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Koleksi tempat wisata impian di Nusantara',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.onSurfaceVariant,
-                    ),
-              ),
-              const SizedBox(height: 20),
-              if (favoriteList.isEmpty)
-                Container(
-                  height: 240,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: AppColors.surfaceContainer,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(
-                        Icons.favorite_border_rounded,
-                        size: 48,
-                        color: AppColors.onSurfaceVariant,
-                      ),
-                      const SizedBox(height: 12),
-                      const Text(
-                        'Belum ada destinasi favorit',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Geser kartu ke kanan atau ketuk simpan untuk menambahkan',
-                        style: TextStyle(
-                          color: AppColors.onSurfaceVariant,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              else
-                ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: favoriteList.length,
-                  separatorBuilder: (context, index) => const SizedBox(height: 12),
-                  itemBuilder: (context, index) {
-                    final item = favoriteList[index];
-                    return GestureDetector(
-                      onTap: () => _showDetailSheet(item),
-                      child: Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: AppColors.surfaceContainer,
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(
-                            color: Colors.white.withValues(alpha: 0.08),
-                          ),
-                        ),
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.network(
-                                item.imageUrl,
-                                width: 72,
-                                height: 72,
-                                fit: BoxFit.cover,
-                                errorBuilder: (c, e, s) => Container(
-                                  width: 72,
-                                  height: 72,
-                                  color: AppColors.surfaceContainerHigh,
-                                  child: const Icon(Icons.landscape_rounded),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 14),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    item.title,
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star_rounded,
-                                        size: 14,
-                                        color: AppColors.secondary,
-                                      ),
-                                      const SizedBox(width: 3),
-                                      Text(
-                                        item.rating.toStringAsFixed(1),
-                                        style: const TextStyle(
-                                          color: AppColors.secondary,
-                                          fontWeight: FontWeight.w700,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            IconButton(
-                              icon: const Icon(
-                                Icons.delete_outline_rounded,
-                                color: Color(0xFFFF6B6B),
-                              ),
-                              onPressed: () => _toggleFavorite(item),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-            ],
-          ),
         ),
       ),
     );
